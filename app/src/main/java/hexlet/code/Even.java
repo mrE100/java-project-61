@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Even {
     private static int resultInRow = 0;
-    private static String name;
 
     public static int generateRandomIntInt() {
         Random r = new Random();
@@ -14,17 +13,19 @@ public class Even {
 
     public static String evenGame() {
         Scanner scanner = new Scanner(System.in);
-        name = Cli.getName();
+        String name = Cli.getName();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (resultInRow < 3) {
             int toCheck = generateRandomIntInt();
             System.out.println("Question: " + toCheck);
             String yourAnswer = scanner.nextLine().toLowerCase();
-            if ((yourAnswer.equals("yes") && toCheck % 2 == 0) || (yourAnswer.equals("no") && toCheck % 2 != 0)) {
+            String correctAnswer = toCheck % 2 == 0 ? "yes" : "no";
+            if (yourAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
                 resultInRow++;
             } else {
-                resultInRow = 0;
+                System.out.println("'" + yourAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                return "Let's try again, " + name;
             }
         }
         return "Congratulations, " + name;
