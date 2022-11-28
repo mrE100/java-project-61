@@ -2,9 +2,9 @@ package hexlet.code;
 
 
 public class Calc extends Game {
-    private static int firstNumber;
-    private static int secondNumber;
-    private static String action;
+    private int firstNumber;
+    private int secondNumber;
+    private String action;
     public String printRules() {
         return "What is the result of the expression?";
     }
@@ -20,9 +20,9 @@ public class Calc extends Game {
         return String.valueOf(result);
     }
     public String generateQuestion() {
-        this.firstNumber = new generateRandomIntFromOneToHundred().generate();
-        this.secondNumber = new generateRandomIntFromOneToHundred().generate();
-        int toActionNumber = new generateRandomIntFromOneToHundred().generate();
+        this.firstNumber = generateRandomIntFromOneToHundred.generate();
+        this.secondNumber = generateRandomIntFromOneToHundred.generate();
+        int toActionNumber = generateRandomIntFromOneToHundred.generate();
         if (toActionNumber < 33) {
             this.action = " + ";
         } else if (toActionNumber < 66) {
