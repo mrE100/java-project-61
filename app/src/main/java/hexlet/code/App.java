@@ -8,8 +8,9 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
-        System.out.println("3 - Calc ");
-        System.out.println("4 - GCD ");
+        System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         int choiceNumber = Cli.getNumber();
         System.out.println("Your choice: " + choiceNumber);
@@ -25,7 +26,10 @@ public class App {
                 game = new Calc();
                 break;
             case(4):
-                game = new Gnd();
+                game = new Gcd();
+                break;
+            case(5):
+                game = new Progression();
                 break;
         }
 //        if (choiceNumber == 1) {

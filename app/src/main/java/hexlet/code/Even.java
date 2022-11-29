@@ -9,7 +9,7 @@ public class Even extends Game{
         return toCheck % 2 == 0 ? "yes" : "no";
     }
     public String generateQuestion() {
-        toCheck = generateRandomIntFromOneToHundred.generate();
+        toCheck = new generateRandomIntFromOneToHundred().generate();
         return String.valueOf(toCheck);
     }
 
