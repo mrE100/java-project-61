@@ -1,5 +1,4 @@
-package hexlet.code;
-import java.util.ArrayList;
+package hexlet.code.games;
 import java.util.Random;
 
 public class Progression extends Game {

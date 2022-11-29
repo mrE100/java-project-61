@@ -1,17 +1,13 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
 public class App {
     private static boolean Calc;
     private static Game game;
 
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("0 - Exit");
+        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         int choiceNumber = Cli.getNumber();
         System.out.println("Your choice: " + choiceNumber);
         switch (choiceNumber) {
@@ -31,15 +27,10 @@ public class App {
             case(5):
                 game = new Progression();
                 break;
+            case(6):
+                game = new Prime();
+                break;
         }
-//        if (choiceNumber == 1) {
-//            System.out.println("Welcome to the Brain Games!");
-//            System.out.println("Hello, " + Cli.getName() + "!");
-//        } else if (choiceNumber == 2) {
-//            game = new Even();
-//        } else if (choiceNumber == 3) {
-//            game = new Calc();
-//        }
         game.play();
     }
 
