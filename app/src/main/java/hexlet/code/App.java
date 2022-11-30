@@ -31,7 +31,9 @@ public class App {
                 game = new Prime();
                 break;
         }
-        game.play();
+        if (game != null) {
+            game.play();
+        }
     }
 
 }
