@@ -13,7 +13,7 @@ public class App {
         switch (choiceNumber) {
             case (1):
                 System.out.println("Welcome to the Brain Games!");
-                System.out.println("Hello, " + Cli.getName() + "!");
+                Cli.getName();
                 break;
             case (2):
                 game = new Even();
