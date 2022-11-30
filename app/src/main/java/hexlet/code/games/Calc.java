@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-
 public class Calc extends Game {
     private int firstNumber;
     private int secondNumber;

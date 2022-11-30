@@ -28,10 +28,22 @@ public abstract class Game {
         }
     }
 
+    /**
+     *
+     * @return a string with game rules
+     */
     public abstract String printRules();
 
+    /**
+     *
+     * @return a String with correct answer
+     */
     public abstract String  getCorrectAnswer();
 
+    /**
+     *
+     * @return a string with question
+     */
     public abstract String generateQuestion();
 
 }

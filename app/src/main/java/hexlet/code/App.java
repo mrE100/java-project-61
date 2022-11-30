@@ -1,13 +1,19 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Game;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 
 public class App {
-    private static boolean Calc;
     private static Game game;
 
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         int choiceNumber = Cli.getNumber();
         System.out.println("Your choice: " + choiceNumber);
         switch (choiceNumber) {
@@ -30,6 +36,8 @@ public class App {
             case(6):
                 game = new Prime();
                 break;
+            default:
+                System.out.println("I don't know that choice.");
         }
         if (game != null) {
             game.play();
