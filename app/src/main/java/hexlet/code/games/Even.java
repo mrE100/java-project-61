@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Even extends Game{
+public final class Even extends Game {
     private int toCheck;
     public String printRules() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";

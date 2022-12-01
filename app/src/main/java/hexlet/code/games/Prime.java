@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Prime extends Game {
+public final class Prime extends Game {
     private int number;
     @Override
     public String printRules() {
@@ -18,9 +18,9 @@ public class Prime extends Game {
         return String.valueOf(number);
     }
 
-    private boolean checkNum(int number){
-        for(int i = 2; i < number; i++) {
-            if (number % i == 0){
+    private boolean checkNum(int number) {
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
                 return false;
             }
         }

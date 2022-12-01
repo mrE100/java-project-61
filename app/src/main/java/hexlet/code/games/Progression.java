@@ -1,7 +1,7 @@
 package hexlet.code.games;
 import java.util.Random;
 
-public class Progression extends Game {
+public final class Progression extends Game {
 
     private int secretPosition;
     private int[] listOfNumbers;
@@ -19,9 +19,11 @@ public class Progression extends Game {
 
     @Override
     public String generateQuestion() {
+        int upperBound = 10;
+        int lowerBound = 5;
         int startingNumber = generateRandomIntFromOneToHundred.generate();
-        int stepOfTheProgression = new Random().nextInt(10) + 1;
-        int progressionLength = new Random().nextInt(10 - 5) + 5;
+        int stepOfTheProgression = new Random().nextInt(upperBound) + 1;
+        int progressionLength = new Random().nextInt(upperBound - lowerBound) + lowerBound;
         secretPosition = new Random().nextInt(progressionLength);
         listOfNumbers = new int[progressionLength];
         listOfNumbers[0] = startingNumber;

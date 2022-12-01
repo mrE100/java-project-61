@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Gcd extends Game {
+public final class Gcd extends Game {
     private int firstNumber;
     private int secondNumber;
     @Override

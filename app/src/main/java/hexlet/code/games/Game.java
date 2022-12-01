@@ -5,9 +5,9 @@ import hexlet.code.Cli;
 import java.util.Scanner;
 
 public abstract class Game {
-    static int resultInRow = 0;
-    String name = Cli.getName();
-    Scanner scanner = new Scanner(System.in);
+    private static int resultInRow = 0;
+    private final String name = Cli.getName();
+    private final Scanner scanner = new Scanner(System.in);
     public void play() {
         System.out.println(printRules());
         while (resultInRow < 3) {
