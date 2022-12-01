@@ -14,7 +14,7 @@ public final class Prime extends Game {
 
     @Override
     public String generateQuestion() {
-        number = generateRandomIntFromOneToHundred.generate();
+        number = GenerateRandomIntFromOneToHundred.generate();
         return String.valueOf(number);
     }
 

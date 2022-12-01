@@ -8,17 +8,23 @@ public abstract class Game {
     private static int resultInRow = 0;
     private final String name = Cli.getName();
     private final Scanner scanner = new Scanner(System.in);
+
+
+    /**
+     * rules, question and correct answer should be realized for each game
+      */
     public void play() {
         System.out.println(printRules());
         while (resultInRow < 3) {
             System.out.println("Question: " + generateQuestion());
-            String yourAnswer = this.scanner.nextLine().toLowerCase();
-            String correctAnswer = getCorrectAnswer();
-            if (yourAnswer.equals(correctAnswer)) {
+            String yourA = this.scanner.nextLine().toLowerCase();
+            String correctA = getCorrectAnswer();
+            if (yourA.equals(correctA)) {
                 System.out.println("Correct!");
                 resultInRow++;
             } else {
-                System.out.println("'" + yourAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+
+                System.out.println("'" + yourA + "' is wrong answer ;(. Correct answer was '" + correctA + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 break;
             }

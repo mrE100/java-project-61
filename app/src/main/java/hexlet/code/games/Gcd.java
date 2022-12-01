@@ -21,8 +21,8 @@ public final class Gcd extends Game {
 
     @Override
     public String generateQuestion() {
-        firstNumber = generateRandomIntFromOneToHundred.generate();
-        secondNumber = generateRandomIntFromOneToHundred.generate();
+        firstNumber = GenerateRandomIntFromOneToHundred.generate();
+        secondNumber = GenerateRandomIntFromOneToHundred.generate();
         return firstNumber + " " + secondNumber;
     }
 }

@@ -11,7 +11,7 @@ import hexlet.code.games.Prime;
 public class App {
     private static Game game;
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         int choiceNumber = Cli.getNumber();

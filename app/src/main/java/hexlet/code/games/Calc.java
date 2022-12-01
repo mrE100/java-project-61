@@ -19,12 +19,14 @@ public final class Calc extends Game {
         return String.valueOf(result);
     }
     public String generateQuestion() {
-        this.firstNumber = generateRandomIntFromOneToHundred.generate();
-        this.secondNumber = generateRandomIntFromOneToHundred.generate();
-        int toActionNumber = generateRandomIntFromOneToHundred.generate();
-        if (toActionNumber < 33) {
+        this.firstNumber = GenerateRandomIntFromOneToHundred.generate();
+        this.secondNumber = GenerateRandomIntFromOneToHundred.generate();
+        int toActionNumber = GenerateRandomIntFromOneToHundred.generate();
+        int firstThird = 33;
+        int secondThird = 66;
+        if (toActionNumber < firstThird) {
             this.action = " + ";
-        } else if (toActionNumber < 66) {
+        } else if (toActionNumber < secondThird) {
             this.action = " - ";
         } else {
             this.action = " * ";

@@ -21,7 +21,7 @@ public final class Progression extends Game {
     public String generateQuestion() {
         int upperBound = 10;
         int lowerBound = 5;
-        int startingNumber = generateRandomIntFromOneToHundred.generate();
+        int startingNumber = GenerateRandomIntFromOneToHundred.generate();
         int stepOfTheProgression = new Random().nextInt(upperBound) + 1;
         int progressionLength = new Random().nextInt(upperBound - lowerBound) + lowerBound;
         secretPosition = new Random().nextInt(progressionLength);
