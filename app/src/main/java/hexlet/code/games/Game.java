@@ -1,11 +1,9 @@
 package hexlet.code.games;
-
 import hexlet.code.Cli;
-
-import java.util.Scanner;
 
 public abstract class Game {
     private static int resultInRow = 0;
+    private final int GAMESTOWIN = 3;
     private final String name = Cli.getName();
 
     /**
@@ -13,7 +11,7 @@ public abstract class Game {
       */
     public void play() {
         System.out.println(printRules());
-        while (resultInRow < 3) {
+        while (resultInRow < GAMESTOWIN) {
             System.out.println("Question: " + generateQuestion());
             String yourA = Cli.getLine().toLowerCase();
             String correctA = getCorrectAnswer();

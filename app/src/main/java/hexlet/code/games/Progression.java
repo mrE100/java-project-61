@@ -4,6 +4,8 @@ import java.util.Random;
 public final class Progression extends Game {
 
     private int secretPosition;
+    private final int UPPERBOUND = 10;
+    private final int LOWERBOUND =5;
     private int[] listOfNumbers;
 
 
@@ -19,11 +21,9 @@ public final class Progression extends Game {
 
     @Override
     public String generateQuestion() {
-        int upperBound = 10;
-        int lowerBound = 5;
         int startingNumber = GenerateRandomIntFromOneToHundred.generate();
-        int stepOfTheProgression = new Random().nextInt(upperBound) + 1;
-        int progressionLength = new Random().nextInt(upperBound - lowerBound) + lowerBound;
+        int stepOfTheProgression = new Random().nextInt(UPPERBOUND) + 1;
+        int progressionLength = new Random().nextInt(UPPERBOUND - LOWERBOUND) + LOWERBOUND;
         secretPosition = new Random().nextInt(progressionLength);
         listOfNumbers = new int[progressionLength];
         listOfNumbers[0] = startingNumber;

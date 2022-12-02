@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 public final class Calc extends Game {
     private int firstNumber;
+    private final int FIRSTTHIRD = 33;
+    private final int SECONDTHIRD = 66;
     private int secondNumber;
     private String action;
     public String printRules() {
@@ -22,11 +24,9 @@ public final class Calc extends Game {
         this.firstNumber = GenerateRandomIntFromOneToHundred.generate();
         this.secondNumber = GenerateRandomIntFromOneToHundred.generate();
         int toActionNumber = GenerateRandomIntFromOneToHundred.generate();
-        int firstThird = 33;
-        int secondThird = 66;
-        if (toActionNumber < firstThird) {
+        if (toActionNumber < FIRSTTHIRD) {
             this.action = " + ";
-        } else if (toActionNumber < secondThird) {
+        } else if (toActionNumber < SECONDTHIRD) {
             this.action = " - ";
         } else {
             this.action = " * ";

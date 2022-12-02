@@ -18,9 +18,9 @@ public final class Prime extends Game {
         return String.valueOf(number);
     }
 
-    private boolean checkNum(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
+    private boolean checkNum(int numberToCheck) {
+        for (int i = 2; i < numberToCheck; i++) {
+            if (numberToCheck % i == 0) {
                 return false;
             }
         }
