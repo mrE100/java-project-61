@@ -3,15 +3,16 @@ import hexlet.code.Cli;
 
 public abstract class Game {
     private static int resultInRow = 0;
-    private final int GAMESTOWIN = 3;
+    private final int gamesToWin = 3;
     private final String name = Cli.getName();
 
     /**
-     * rules, question and correct answer should be realized for each game
+     *
+     * rules, question and correct answer should be realized for each game.
       */
     public void play() {
         System.out.println(printRules());
-        while (resultInRow < GAMESTOWIN) {
+        while (resultInRow < gamesToWin) {
             System.out.println("Question: " + generateQuestion());
             String yourA = Cli.getLine().toLowerCase();
             String correctA = getCorrectAnswer();
@@ -25,7 +26,7 @@ public abstract class Game {
                 break;
             }
         }
-        if (resultInRow == 3) {
+        if (resultInRow == gamesToWin) {
             System.out.println("Congratulations, " + name + "!");
         }
     }
