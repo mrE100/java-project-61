@@ -7,8 +7,6 @@ import java.util.Scanner;
 public abstract class Game {
     private static int resultInRow = 0;
     private final String name = Cli.getName();
-    private final Scanner scanner = new Scanner(System.in);
-
 
     /**
      * rules, question and correct answer should be realized for each game
@@ -17,7 +15,7 @@ public abstract class Game {
         System.out.println(printRules());
         while (resultInRow < 3) {
             System.out.println("Question: " + generateQuestion());
-            String yourA = this.scanner.nextLine().toLowerCase();
+            String yourA = Cli.getLine().toLowerCase();
             String correctA = getCorrectAnswer();
             if (yourA.equals(correctA)) {
                 System.out.println("Correct!");
