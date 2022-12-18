@@ -1,4 +1,6 @@
 package hexlet.code.games;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public final class Progression extends Game {
@@ -10,18 +12,17 @@ public final class Progression extends Game {
 
 
     @Override
-    public String printRules() {
-        return "What number is missing in the progression?";
+    public void getRules() {
+        System.out.println("What number is missing in the progression?");
     }
-
-    @Override
     public String getCorrectAnswer() {
         return String.valueOf(listOfNumbers[secretPosition]);
     }
 
     @Override
-    public String generateQuestion() {
-        int startingNumber = GenerateRandomIntFromOneToHundred.generate();
+    public List<String> generateQuestion() {
+        List<String> question = new ArrayList<>();
+        int startingNumber = NumberGenerator.generate();
         int stepOfTheProgression = new Random().nextInt(upperBound) + 1;
         int progressionLength = new Random().nextInt(upperBound - lowerBound) + lowerBound;
         secretPosition = new Random().nextInt(progressionLength);
@@ -39,6 +40,8 @@ public final class Progression extends Game {
                 builder.append(listOfNumbers[i]).append(" ");
             }
         }
-        return builder.toString();
+        question.add(builder.toString());
+        question.add(getCorrectAnswer());
+        return question;
     }
 }

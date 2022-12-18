@@ -1,16 +1,22 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Even extends Game {
     private int toCheck;
-    public String printRules() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public void getRules() {
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
     public String getCorrectAnswer() {
         return toCheck % 2 == 0 ? "yes" : "no";
     }
-    public String generateQuestion() {
-        toCheck = new GenerateRandomIntFromOneToHundred().generate();
-        return String.valueOf(toCheck);
+    public List<String> generateQuestion() {
+        List<String> question = new ArrayList<>();
+        toCheck = NumberGenerator.generate();
+        question.add(String.valueOf(toCheck));
+        question.add(getCorrectAnswer());
+        return question;
     }
 
 }

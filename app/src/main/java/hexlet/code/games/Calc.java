@@ -1,36 +1,33 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Calc extends Game {
-    private int firstNumber;
-    private final int firstThird = 33;
-    private final int secondThird = 66;
-    private int secondNumber;
-    private String action;
-    public String printRules() {
-        return "What is the result of the expression?";
+    private final String[] operand = {" + ", " - ", " * "};
+
+    public void getRules() {
+        System.out.println("What is the result of the expression?");
     }
-    public String getCorrectAnswer() {
+    public List<String> generateQuestion() {
+        List<String> question = new ArrayList<>();
+        int firstNumber = NumberGenerator.generate(16);
+        int secondNumber = NumberGenerator.generate(16);
+        int toActionNumber = NumberGenerator.generate(0, 2);
         int result = 0;
-        if (action.equals(" + ")) {
-            result = firstNumber + secondNumber;
-        } else if (action.equals(" - ")) {
-            result = firstNumber - secondNumber;
-        } else if (action.equals(" * ")) {
-            result = firstNumber * secondNumber;
-        }
-        return String.valueOf(result);
-    }
-    public String generateQuestion() {
-        this.firstNumber = GenerateRandomIntFromOneToHundred.generate();
-        this.secondNumber = GenerateRandomIntFromOneToHundred.generate();
-        int toActionNumber = GenerateRandomIntFromOneToHundred.generate();
-        if (toActionNumber < firstThird) {
-            this.action = " + ";
-        } else if (toActionNumber < secondThird) {
-            this.action = " - ";
-        } else {
-            this.action = " * ";
-        }
-        return firstNumber + action + secondNumber;
+        switch (toActionNumber) {
+            case 0:
+                result = firstNumber + secondNumber;
+                break;
+            case 1:
+                result = firstNumber - secondNumber;
+                break;
+            case 2:
+                result = firstNumber * secondNumber;
+            }
+        String action = operand[toActionNumber];
+        question.add(firstNumber + action + secondNumber);
+        question.add(String.valueOf(result));
+        return question;
     }
 }

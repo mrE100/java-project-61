@@ -10,6 +10,10 @@ public final class Cli {
         return name;
     }
 
+    public static void greeting() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println(getName());
+    }
     public static String getLine() {
         return SCANNER.nextLine();
     }

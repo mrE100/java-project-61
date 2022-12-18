@@ -1,24 +1,32 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Prime extends Game {
     private int number;
     @Override
-    public String printRules() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public void getRules() {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    @Override
     public String getCorrectAnswer() {
         return checkNum(number) ? "yes" : "no";
     }
 
     @Override
-    public String generateQuestion() {
-        number = GenerateRandomIntFromOneToHundred.generate();
-        return String.valueOf(number);
+    public List<String> generateQuestion() {
+        List<String> question = new ArrayList<>();
+        number = NumberGenerator.generate(28);
+        question.add(String.valueOf(number));
+        question.add(getCorrectAnswer());
+        return question;
     }
 
     private boolean checkNum(int numberToCheck) {
+        if (numberToCheck <= 1) {
+            return false;
+        }
         for (int i = 2; i < numberToCheck; i++) {
             if (numberToCheck % i == 0) {
                 return false;

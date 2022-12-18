@@ -1,27 +1,29 @@
 package hexlet.code.games;
 import hexlet.code.Cli;
 
+import java.util.List;
+
 public abstract class Game {
-    private static int resultInRow = 0;
-    private final int gamesToWin = 3;
-    private final String name = Cli.getName();
+    private int resultInRow = 0;
+    private static final int gamesToWin = 3;
 
     /**
      *
      * rules, question and correct answer should be realized for each game.
       */
     public void play() {
-        System.out.println(printRules());
+        final String name = Cli.getName();
+        getRules();
         while (resultInRow < gamesToWin) {
-            System.out.println("Question: " + generateQuestion());
+            List<String> question = generateQuestion();
+            System.out.println("Question: " + question.get(0));
             String yourA = Cli.getLine().toLowerCase();
-            String correctA = getCorrectAnswer();
-            if (yourA.equals(correctA)) {
+            if (yourA.equals(question.get(1))) {
                 System.out.println("Correct!");
                 resultInRow++;
             } else {
 
-                System.out.println("'" + yourA + "' is wrong answer ;(. Correct answer was '" + correctA + "'.");
+                System.out.println("'" + yourA + "' is wrong answer ;(. Correct answer was '" + question.get(1) + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 break;
             }
@@ -33,20 +35,14 @@ public abstract class Game {
 
     /**
      *
-     * @return a string with game rules
+     *  a string with game rules
      */
-    public abstract String printRules();
+    public abstract void getRules();
+
 
     /**
-     *
-     * @return a String with correct answer
+     * @return a List with question and correct answer
      */
-    public abstract String  getCorrectAnswer();
-
-    /**
-     *
-     * @return a string with question
-     */
-    public abstract String generateQuestion();
+    public abstract List<String> generateQuestion();
 
 }
