@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Calc extends Game {
-    private final int BOUND = 16;
+    private static final int BOUND = 16;
     private final String[] operand = {" + ", " - ", " * "};
 
     public void getRules() {
