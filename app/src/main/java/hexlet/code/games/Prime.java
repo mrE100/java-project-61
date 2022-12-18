@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class Prime extends Game {
     private int number;
-    private final static int SIMPLEBOUND = 28;
+    private static final int SIMPLEBOUND = 28;
     @Override
     public void getRules() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
