@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Game {
     private int resultInRow = 0;
-    private static final int gamesToWin = 3;
+    private static final int GAMESTOWIN = 3;
 
     /**
      *
@@ -14,7 +14,7 @@ public abstract class Game {
     public void play() {
         final String name = Cli.getName();
         getRules();
-        while (resultInRow < gamesToWin) {
+        while (resultInRow < GAMESTOWIN) {
             List<String> question = generateQuestion();
             System.out.println("Question: " + question.get(0));
             String yourA = Cli.getLine().toLowerCase();
@@ -28,15 +28,11 @@ public abstract class Game {
                 break;
             }
         }
-        if (resultInRow == gamesToWin) {
+        if (resultInRow == GAMESTOWIN) {
             System.out.println("Congratulations, " + name + "!");
         }
     }
 
-    /**
-     *
-     *  a string with game rules
-     */
     public abstract void getRules();
 
 

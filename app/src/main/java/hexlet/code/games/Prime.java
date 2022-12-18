@@ -5,6 +5,7 @@ import java.util.List;
 
 public final class Prime extends Game {
     private int number;
+    private final int SIMPLEBOUND = 28;
     @Override
     public void getRules() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
@@ -17,7 +18,7 @@ public final class Prime extends Game {
     @Override
     public List<String> generateQuestion() {
         List<String> question = new ArrayList<>();
-        number = NumberGenerator.generate(28);
+        number = NumberGenerator.generate(SIMPLEBOUND);
         question.add(String.valueOf(number));
         question.add(getCorrectAnswer());
         return question;

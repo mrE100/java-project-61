@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Calc extends Game {
+    private final int BOUND = 16;
     private final String[] operand = {" + ", " - ", " * "};
 
     public void getRules() {
@@ -11,8 +12,8 @@ public final class Calc extends Game {
     }
     public List<String> generateQuestion() {
         List<String> question = new ArrayList<>();
-        int firstNumber = NumberGenerator.generate(16);
-        int secondNumber = NumberGenerator.generate(16);
+        int firstNumber = NumberGenerator.generate(BOUND);
+        int secondNumber = NumberGenerator.generate(BOUND);
         int toActionNumber = NumberGenerator.generate(0, 2);
         int result = 0;
         switch (toActionNumber) {
@@ -22,9 +23,9 @@ public final class Calc extends Game {
             case 1:
                 result = firstNumber - secondNumber;
                 break;
-            case 2:
+            default:
                 result = firstNumber * secondNumber;
-            }
+        }
         String action = operand[toActionNumber];
         question.add(firstNumber + action + secondNumber);
         question.add(String.valueOf(result));
