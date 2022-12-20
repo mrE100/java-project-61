@@ -33,9 +33,7 @@ public abstract class Game {
                 return;
             }
         }
-//        if (resultInRow == ROUNDS) {
-//            System.out.println("Congratulations, " + name + "!");
-//        }
+            System.out.println("Congratulations, " + name + "!");
     }
 
     /**
