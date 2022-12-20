@@ -16,12 +16,19 @@ public final class Calc extends Game {
         int firstNumber = NumberGenerator.generate(BOUND);
         int secondNumber = NumberGenerator.generate(BOUND);
         int operationIndex = NumberGenerator.generate(0, 2);
-        int result = 0;
+        int result;
         switch (operationIndex) {
-            case 0 -> result = firstNumber + secondNumber;
-            case 1 -> result = firstNumber - secondNumber;
-            case 2 -> result = firstNumber * secondNumber;
-            default -> throw new RuntimeException("Unknown operand!");
+            case 0:
+                result = firstNumber + secondNumber;
+                break;
+            case 1:
+                result = firstNumber - secondNumber;
+                break;
+            case 2:
+                result = firstNumber * secondNumber;
+                break;
+            default:
+                throw new RuntimeException("Unknown operand!");
         }
         String action = OPERAND[operationIndex];
         data.add(firstNumber + action + secondNumber);
