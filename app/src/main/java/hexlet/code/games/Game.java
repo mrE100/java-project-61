@@ -1,5 +1,4 @@
 package hexlet.code.games;
-import hexlet.code.Cli;
 
 import java.util.List;
 import java.util.Scanner;
@@ -21,14 +20,14 @@ public abstract class Game {
         System.out.println(getRules());
         while (resultInRow < ROUNDS) {
             List<String> questionAndAnswer = generateQuestionAndAnswer();
-            String rightAnswer = questionAndAnswer.get(1);
+            String answer = questionAndAnswer.get(1);
             System.out.println("Question: " + questionAndAnswer.get(0));
             String userAnswer = scanner.nextLine().toLowerCase();
-            if (userAnswer.equals(rightAnswer)) {
+            if (userAnswer.equals(answer)) {
                 System.out.println("Correct!");
                 resultInRow++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + rightAnswer + "'.");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + answer + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 return;
             }

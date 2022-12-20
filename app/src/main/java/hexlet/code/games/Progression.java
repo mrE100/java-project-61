@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Random;
 
 public final class Progression extends Game {
-
+    private static final int UPPERBOUND = 10;
+    private static final int LOWERBOUND = 5;
 
     @Override
     public String getRules() {
@@ -14,11 +15,9 @@ public final class Progression extends Game {
     @Override
     public List<String> generateQuestionAndAnswer() {
         List<String> data = new ArrayList<>();
-        int upperBound = 10;
-        int lowerBound = 5;
         int startingNumber = NumberGenerator.generate();
-        int stepOfTheProgression = new Random().nextInt(upperBound) + 1;
-        int progressionLength = new Random().nextInt(upperBound - lowerBound) + lowerBound;
+        int stepOfTheProgression = new Random().nextInt(UPPERBOUND) + 1;
+        int progressionLength = new Random().nextInt(UPPERBOUND - LOWERBOUND) + LOWERBOUND;
         int secretPosition = new Random().nextInt(progressionLength);
         int[] listOfNumbers = new int[progressionLength];
         listOfNumbers[0] = startingNumber;

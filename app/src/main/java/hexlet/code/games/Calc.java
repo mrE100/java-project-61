@@ -16,7 +16,7 @@ public final class Calc extends Game {
         int firstNumber = NumberGenerator.generate(BOUND);
         int secondNumber = NumberGenerator.generate(BOUND);
         int operationIndex = NumberGenerator.generate(0, 2);
-        int result;
+        int result = 0;
         switch (operationIndex) {
             case 0 -> result = firstNumber + secondNumber;
             case 1 -> result = firstNumber - secondNumber;
