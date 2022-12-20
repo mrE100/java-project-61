@@ -5,30 +5,27 @@ import java.util.List;
 
 public final class Calc extends Game {
     private static final int BOUND = 16;
-    private final String[] operand = {" + ", " - ", " * "};
+    private static final String[] OPERAND = {" + ", " - ", " * "};
 
-    public void getRules() {
-        System.out.println("What is the result of the expression?");
+    @Override
+    public String getRules() {
+        return "What is the result of the expression?";
     }
-    public List<String> generateQuestion() {
-        List<String> question = new ArrayList<>();
+    public List<String> generateQuestionAndAnswer() {
+        List<String> data = new ArrayList<>();
         int firstNumber = NumberGenerator.generate(BOUND);
         int secondNumber = NumberGenerator.generate(BOUND);
-        int toActionNumber = NumberGenerator.generate(0, 2);
-        int result = 0;
-        switch (toActionNumber) {
-            case 0:
-                result = firstNumber + secondNumber;
-                break;
-            case 1:
-                result = firstNumber - secondNumber;
-                break;
-            default:
-                result = firstNumber * secondNumber;
+        int operationIndex = NumberGenerator.generate(0, 2);
+        int result;
+        switch (operationIndex) {
+            case 0 -> result = firstNumber + secondNumber;
+            case 1 -> result = firstNumber - secondNumber;
+            case 2 -> result = firstNumber * secondNumber;
+            default -> throw new RuntimeException("Unknown operand!");
         }
-        String action = operand[toActionNumber];
-        question.add(firstNumber + action + secondNumber);
-        question.add(String.valueOf(result));
-        return question;
+        String action = OPERAND[operationIndex];
+        data.add(firstNumber + action + secondNumber);
+        data.add(String.valueOf(result));
+        return data;
     }
 }

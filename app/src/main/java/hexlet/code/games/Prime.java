@@ -4,24 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Prime extends Game {
-    private int number;
+
     private static final int SIMPLEBOUND = 28;
-    @Override
-    public void getRules() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
 
-    public String getCorrectAnswer() {
-        return checkNum(number) ? "yes" : "no";
+    @Override
+    public String getRules() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override
-    public List<String> generateQuestion() {
-        List<String> question = new ArrayList<>();
-        number = NumberGenerator.generate(SIMPLEBOUND);
-        question.add(String.valueOf(number));
-        question.add(getCorrectAnswer());
-        return question;
+    public List<String> generateQuestionAndAnswer() {
+        List<String> data = new ArrayList<>();
+        int number = NumberGenerator.generate(SIMPLEBOUND);
+        data.add(String.valueOf(number));
+        data.add(checkNum(number) ? "yes" : "no");
+        return data;
     }
 
     private boolean checkNum(int numberToCheck) {

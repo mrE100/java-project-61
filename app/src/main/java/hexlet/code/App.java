@@ -2,14 +2,14 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
-import hexlet.code.games.Game;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
+import java.util.Scanner;
+
 
 public class App {
-    private Game game;
     public static final int GREET = 1;
     public static final int EVEN = 2;
     public static final int CALC = 3;
@@ -29,37 +29,23 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         try {
-            int choiceNumber = Integer.valueOf(Cli.getLine());
+            Scanner scanner = new Scanner(System.in);
+            int choiceNumber = Integer.parseInt(scanner.nextLine());
             System.out.println("Your choice: " + choiceNumber);
             switch (choiceNumber) {
-                case GREET:
-                    Cli.greeting();
-                    break;
-                case EVEN:
-                    new Even().play();
-                    break;
-                case CALC:
-                    new Calc().play();
-                    break;
-                case GCD:
-                    new Gcd().play();
-                    break;
-                case PROGRESSION:
-                    new Progression().play();
-                    break;
-                case PRIME:
-                    new Prime().play();
-                    break;
-                case EXIT:
-                    System.out.println("Bye-bye!");
-                    break;
-                default:
-                    throw new Exception("I don't know that choice");
+                case GREET -> Cli.greeting();
+                case EVEN -> new Even().play();
+                case CALC -> new Calc().play();
+                case GCD -> new Gcd().play();
+                case PROGRESSION -> new Progression().play();
+                case PRIME -> new Prime().play();
+                case EXIT -> System.out.println("Bye-bye!");
+                default -> throw new Exception("I don't know that choice");
             }
         } catch (NumberFormatException e) {
             System.out.println("This is not a number!");
         } catch (Exception x) {
-            System.out.println(x);
+            System.out.println(x.getMessage());
         }
     }
 }

@@ -5,28 +5,22 @@ import java.util.Random;
 
 public final class Progression extends Game {
 
-    private int secretPosition;
-    private final int upperBound = 10;
-    private final int lowerBound = 5;
-    private int[] listOfNumbers;
-
 
     @Override
-    public void getRules() {
-        System.out.println("What number is missing in the progression?");
-    }
-    public String getCorrectAnswer() {
-        return String.valueOf(listOfNumbers[secretPosition]);
+    public String getRules() {
+        return "What number is missing in the progression?";
     }
 
     @Override
-    public List<String> generateQuestion() {
-        List<String> question = new ArrayList<>();
+    public List<String> generateQuestionAndAnswer() {
+        List<String> data = new ArrayList<>();
+        int upperBound = 10;
+        int lowerBound = 5;
         int startingNumber = NumberGenerator.generate();
         int stepOfTheProgression = new Random().nextInt(upperBound) + 1;
         int progressionLength = new Random().nextInt(upperBound - lowerBound) + lowerBound;
-        secretPosition = new Random().nextInt(progressionLength);
-        listOfNumbers = new int[progressionLength];
+        int secretPosition = new Random().nextInt(progressionLength);
+        int[] listOfNumbers = new int[progressionLength];
         listOfNumbers[0] = startingNumber;
 
         for (int i = 1; i < progressionLength; i++) {
@@ -40,8 +34,8 @@ public final class Progression extends Game {
                 builder.append(listOfNumbers[i]).append(" ");
             }
         }
-        question.add(builder.toString());
-        question.add(getCorrectAnswer());
-        return question;
+        data.add(builder.toString());
+        data.add(String.valueOf(listOfNumbers[secretPosition]));
+        return data;
     }
 }
