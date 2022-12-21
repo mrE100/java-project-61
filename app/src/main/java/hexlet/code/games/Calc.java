@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.NumberGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public final class Calc extends Game {
         List<String> data = new ArrayList<>();
         int firstNumber = NumberGenerator.generate(BOUND);
         int secondNumber = NumberGenerator.generate(BOUND);
-        int operationIndex = NumberGenerator.generate(0, 2);
+        int operationIndex = NumberGenerator.generate(0, OPERAND.length - 1);
         int result;
         switch (operationIndex) {
             case 0:

@@ -1,11 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.NumberGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public final class Prime extends Game {
 
-    private static final int SIMPLEBOUND = 28;
+    private static final int PRIME_BOUND = 28;
 
     @Override
     public String getRules() {
@@ -15,7 +17,7 @@ public final class Prime extends Game {
     @Override
     public List<String> generateQuestionAndAnswer() {
         List<String> data = new ArrayList<>();
-        int number = NumberGenerator.generate(SIMPLEBOUND);
+        int number = NumberGenerator.generate(PRIME_BOUND);
         data.add(String.valueOf(number));
         data.add(checkNum(number) ? "yes" : "no");
         return data;

@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.NumberGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 

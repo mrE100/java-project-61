@@ -1,11 +1,13 @@
 package hexlet.code.games;
+import hexlet.code.NumberGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public final class Progression extends Game {
-    private static final int UPPERBOUND = 10;
-    private static final int LOWERBOUND = 5;
+    private static final int UPPER_BOUND = 10;
+    private static final int LOWER_BOUND = 5;
 
     @Override
     public String getRules() {
@@ -16,8 +18,8 @@ public final class Progression extends Game {
     public List<String> generateQuestionAndAnswer() {
         List<String> data = new ArrayList<>();
         int startingNumber = NumberGenerator.generate();
-        int stepOfTheProgression = new Random().nextInt(UPPERBOUND) + 1;
-        int progressionLength = new Random().nextInt(UPPERBOUND - LOWERBOUND) + LOWERBOUND;
+        int stepOfTheProgression = new Random().nextInt(UPPER_BOUND) + 1;
+        int progressionLength = new Random().nextInt(UPPER_BOUND - LOWER_BOUND) + LOWER_BOUND;
         int secretPosition = new Random().nextInt(progressionLength);
         int[] listOfNumbers = new int[progressionLength];
         listOfNumbers[0] = startingNumber;

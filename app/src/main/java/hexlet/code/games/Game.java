@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public abstract class Game {
-    private int resultInRow = 0;
+
     private static final int ROUNDS = 3;
 
     /**
@@ -18,6 +18,7 @@ public abstract class Game {
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "!");
         System.out.println(getRules());
+        int resultInRow = 0;
         while (resultInRow < ROUNDS) {
             List<String> questionAndAnswer = generateQuestionAndAnswer();
             String answer = questionAndAnswer.get(1);
